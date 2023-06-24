@@ -7,7 +7,7 @@ import createLogger from '../src/logger.js'
 const logger = createLogger('bin/index')
 function usage() {
     console.log(`${chalk.whiteBright('tool [CMD]')}
-    ${chalk.greenBright('--start')}\tStarts the app
+    ${chalk.greenBright('--start filename templatename')}\tCreates file with template in current directory
     ${chalk.greenBright('--build')}\tBuilds the app`)
 }
 try{
@@ -18,7 +18,7 @@ try{
     logger.debug('Received args', args)
     if(args['--start']){
         const config = getConfig()
-        start(config)
+        start(config,args)
     }
 }catch(e){
     logger.warning(e.message)
