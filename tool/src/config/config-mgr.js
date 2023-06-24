@@ -12,7 +12,7 @@ export function getConfig() {
        
         const result = configLoader.search(process.cwd())
         if(!result){
-            logger.warning('Could not find confi, using default')
+            logger.warning('Could not find config, using default')
             return {port: 1234}
         }else{
             const isValid = ajv.validate(schema, result.config)

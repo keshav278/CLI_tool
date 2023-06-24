@@ -19,7 +19,6 @@ try{
     if(args['--start']){
         const config = getConfig()
         start(config)
-        console.log(chalk.bgCyanBright('starting the app'))
     }
 }catch(e){
     logger.warning(e.message)
