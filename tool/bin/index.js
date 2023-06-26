@@ -8,17 +8,20 @@ const logger = createLogger('bin/index')
 function usage() {
     console.log(`${chalk.whiteBright('tool [CMD]')}
     ${chalk.greenBright('--start filename templatename')}\tCreates file with template in current directory
-    ${chalk.greenBright('--build')}\tBuilds the app`)
+    ${chalk.greenBright('--build')}\tIn development :)`)
 }
 try{
     const args = arg({
         '--start': Boolean,
-        '--build': Boolean,
+        '--help': Boolean,
     })
     logger.debug('Received args', args)
     if(args['--start']){
         const config = getConfig()
         start(config,args)
+    }
+    else if(args['--help']){
+        usage()
     }
 }catch(e){
     logger.warning(e.message)
